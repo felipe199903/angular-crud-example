@@ -22,7 +22,7 @@ export class PeopleService {
     return this.http.delete<any>(`${environment.url}/peoples/` + indexValue).pipe(take(1));
   }
   public edit(indexValue: number, nameValue: string){
-    return this.http.patch<any>(`${environment.url}/peoples`+ indexValue ,{name: nameValue}).pipe(take(1));
+    return this.http.put<any>(`${environment.url}/peoples/`+ indexValue ,{name: nameValue}).pipe(take(1));
   }
 }
 
