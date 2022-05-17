@@ -44,5 +44,12 @@ export class MainComponent implements OnInit {
     }
     );
   }
-
+  public del(indexValue:number){
+    this.peopleService.deletePeople(indexValue).subscribe(data => {
+      this.getAllPeoples();
+    }, error => {
+      console.log(error);
+    }
+    );
+}
 }

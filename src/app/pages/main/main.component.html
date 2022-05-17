@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-8">
+    <div class="">
         <form [formGroup]="peopleForm" (submit)="createPeople()">
             <div class="form-group">
               <label for="nameLabel">Nome completo</label>
@@ -8,20 +8,21 @@
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
     </div>
-    <div class="col-4">
-        <table class="table table-striped">
+    <div class="row">
+        <table class="table table-striped w-100" >
             <thead>
                 <tr>
-                    <th scope="col-sm-1">N.</th>
-                    <th scope="col-sm-1">Nome</th>
-                    <th scope="col-sm-1">Action</th>
+                    <th scope="col">N.</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col-1">Action</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr *ngFor="let people of peoples; let indexOfelement=index;">
+            <tbody *ngFor="let people of peoples; let indexOfelement=index;">
+                <tr>
                     <th scope="row">{{ indexOfelement }}</th>
-                    <td>{{ people }}</td>
-                    <td><button type="submit" class="btn btn-primary">Submit</button></td>
+                    <td class="w-100">{{ people }}</td>
+                    <td class="w-10"><button type="submit" class="btn btn-primary" (click)="del(indexOfelement)">Delete</button></td>
+                    <td class="w-100"><button type="submit" class="btn btn-primary">Edit</button></td>
                 </tr>
             </tbody>
         </table>
