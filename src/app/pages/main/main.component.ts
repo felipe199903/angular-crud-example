@@ -52,4 +52,15 @@ export class MainComponent implements OnInit {
     }
     );
 }
+  public edit(indexValue:number, nameValue: string){
+    this.peopleService.edit(indexValue, nameValue).subscribe(data =>{
+      this.getAllPeoples();
+    }, error =>{
+      console.log(error)
+    }
+    );
+  }
+  public open(){
+    
+  }
 }

@@ -3,7 +3,7 @@
         <form [formGroup]="peopleForm" (submit)="createPeople()">
             <div class="form-group">
               <label for="nameLabel">Nome completo</label>
-              <input formControlName="forName" type="text" class="form-control" placeholder="Insira o nome">
+              <input formControlName="forName" type="text" class="form-control w-50" placeholder="Insira o nome">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
@@ -22,9 +22,18 @@
                     <th scope="row">{{ indexOfelement }}</th>
                     <td class="w-100">{{ people }}</td>
                     <td class="w-10"><button type="submit" class="btn btn-primary" (click)="del(indexOfelement)">Delete</button></td>
-                    <td class="w-100"><button type="submit" class="btn btn-primary">Edit</button></td>
+                    <td class="w-100"><button type="submit" class="btn btn-primary" (click)="open()">Edit</button></td>
                 </tr>
             </tbody>
         </table>
     </div>
+</div>
+<div>
+    <form [formGroup]="peopleForm" (submit)="createPeople()">
+        <div class="form-group">
+          <label for="nameLabel">Nome completo</label>
+          <input formControlName="forName" type="text" class="form-control w-50" placeholder="Insira o nome">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
 </div>
