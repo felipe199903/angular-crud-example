@@ -18,7 +18,11 @@ export class PeopleService {
     return this.http.post<any>(`${environment.url}/peoples`, { name: nameValue }).pipe(take(1));
   }
 
-  public deletePeople(indexValue: string)  {
-    return this.http.delete<any>(`${environment.url}/peoples` + indexValue).pipe(take(1));
+  public deletePeople(indexValue: number)  {
+    return this.http.delete<any>(`${environment.url}/peoples/` + indexValue).pipe(take(1));
+  }
+  public edit(indexValue: string, nameValue: string){
+    return this.http.put<any>(`${environment.url}/peoples`+ indexValue ,{name: nameValue}).pipe(take(1));
   }
 }
+
