@@ -10,6 +10,10 @@ import { FormBuilder } from '@angular/forms';
 export class MainComponent implements OnInit {
   peoples: any;
   peopleForm: any;
+  nameEdit:string = "";
+  indexEdit:any ="";
+  nameValue:any = ""
+
 
   constructor(
     private peopleService: PeopleService,
@@ -30,6 +34,7 @@ export class MainComponent implements OnInit {
   public getAllPeoples() {
     this.peopleService.getAllPeoples().subscribe(data => {
       this.peoples = data;
+      
     }, error => {
       console.log(error);
     }
@@ -39,6 +44,8 @@ export class MainComponent implements OnInit {
   public createPeople() {
     this.peopleService.createPeople(this.peopleForm.controls.forName.value).subscribe(data => {
       this.getAllPeoples();
+      console.log(this.indexEdit)
+      
     }, error => {
       console.log(error);
     }
@@ -52,4 +59,25 @@ export class MainComponent implements OnInit {
     }
     );
 }
+  public edit(indexValue:number, nameValue: string){
+    this.peopleService.edit(indexValue, nameValue).subscribe(data =>{
+      this.getAllPeoples();
+    }, error =>{
+      console.log(error)
+    }
+    );
+  }
+  public open(indexValue:number, nameValue: string){
+    this.peopleService.edit(indexValue, nameValue).subscribe(data =>{
+      this.getAllPeoples();
+      
+    }, error =>{
+      console.log(error)
+    }
+    );
+  }
+  public clear(){
+    this.nameEdit = "";
+    this.indexEdit ="";
+  }
 }

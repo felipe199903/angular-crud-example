@@ -1,30 +1,87 @@
 <div class="row">
-    <div class="">
-        <form [formGroup]="peopleForm" (submit)="createPeople()">
-            <div class="form-group">
-              <label for="nameLabel">Nome completo</label>
-              <input formControlName="forName" type="text" class="form-control" placeholder="Insira o nome">
+  <div class="">
+    <form [formGroup]="peopleForm" (submit)="createPeople()">
+      <div class="form-group">
+        <label for="nameLabel">Nome completo</label>
+        <input
+          formControlName="forName"
+          type="text"
+          class="form-control w-50"
+          placeholder="Insira o nome"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  <div class="row">
+    <table class="table table-striped w-100">
+      <thead>
+        <tr>
+          <th scope="col">N.</th>
+          <th scope="col">Nome</th>
+          <th scope="col-1">Action</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let people of peoples; let indexOfelement = index">
+        <tr>
+          <th scope="row">{{ indexOfelement }}</th>
+          <td class="w-100">{{ people }}</td>
+          <td class="w-10">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              (click)="del(indexOfelement)"
+            >
+              Delete
+            </button>
+          </td>
+          <td class="w-100">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Edit
+            </button>
+          </td>
+          <div
+            class="modal fade"
+            id="exampleModal"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Modal title
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <input type="text" class="w-50" [(ngModel)]="nameEdit" />
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-dismiss="modal"
+                    (click)="open(indexOfelement, nameEdit)"
+                  >
+                    Save changes
+                  </button>
+                </div>
+              </div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-    </div>
-    <div class="row">
-        <table class="table table-striped w-100" >
-            <thead>
-                <tr>
-                    <th scope="col">N.</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col-1">Action</th>
-                </tr>
-            </thead>
-            <tbody *ngFor="let people of peoples; let indexOfelement=index;">
-                <tr>
-                    <th scope="row">{{ indexOfelement }}</th>
-                    <td class="w-100">{{ people }}</td>
-                    <td class="w-10"><button type="submit" class="btn btn-primary" (click)="del(indexOfelement)">Delete</button></td>
-                    <td class="w-100"><button type="submit" class="btn btn-primary">Edit</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
