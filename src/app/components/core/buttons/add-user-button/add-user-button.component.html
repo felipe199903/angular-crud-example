@@ -1,0 +1,13 @@
+<button type="button" class="button button-add-user justify-content-center" [ngClass]="{
+  'button-bg__primary': color === 'primary',
+  'button-bg__secondary': color === 'secondary',
+  'button-bg__secondary-outline': color === 'secondary-outline',
+  'button-bg__primary-outline': color === 'primary-outline'
+}" style="text-align:center">
+  <span class="button-icon" [ngClass]="{
+    'people': icon === 'people',
+    'edit': icon === 'edit',
+    'delete': icon === 'delete'
+  }"></span>
+  <span class="button-label" style="font-weight: bold;">{{ label }}</span>
+</button>
