@@ -1,7 +1,7 @@
 import { PeopleService } from "./../../services/people.service";
 import { Component, OnInit } from "@angular/core";
 import Swal from "sweetalert2";
-import { FormBuilder } from "@angular/forms";
+import { UntypedFormBuilder } from "@angular/forms";
 
 @Component({
   selector: "app-user-table",
@@ -26,7 +26,7 @@ export class UserTableComponent implements OnInit {
 
   constructor(
     private peopleService: PeopleService,
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
   ) {}
 
   ngOnInit() {
