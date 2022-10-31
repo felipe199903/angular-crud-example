@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PeopleService } from 'src/app/services/people.service';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import Swal from "sweetalert2";
 
 @Component({
@@ -20,7 +20,7 @@ export class MainComponent implements OnInit {
 
   constructor(
     private peopleService: PeopleService,
-    private formBuilder: FormBuilder,) { }
+    private formBuilder: UntypedFormBuilder,) { }
 
   ngOnInit(): void {
     this.createPeopleForm();
