@@ -27,7 +27,7 @@ export class UserTableComponent implements OnInit {
   constructor(
     private peopleService: PeopleService,
     private formBuilder: UntypedFormBuilder
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getAllPeoples();
@@ -89,23 +89,7 @@ export class UserTableComponent implements OnInit {
         );
       }
     });
-
     this.indexEdit = indexValue;
-    console.log(this.delete, indexValue, this.indexEdit);
-    if (this.delete == true) {
-      this.peopleService.deletePeople(indexValue).subscribe(
-        (data) => {
-          this.getAllPeoples();
-          this.delete = !this.delete;
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-    } else {
-      this.delete = !this.delete;
-      this.indexEdit = indexValue;
-    }
   }
 
   public edit(indexValue: number, nameValue: string) {
