@@ -23,6 +23,7 @@ export class UserTableComponent implements OnInit {
   nameValue: any = "";
   mostrar: boolean = false;
   delete: boolean = false;
+  isLoading: boolean = true;
 
   constructor(
     private peopleService: PeopleService,
@@ -44,6 +45,7 @@ export class UserTableComponent implements OnInit {
     this.peopleService.getAllPeoples().subscribe(
       (data) => {
         this.peoples = data;
+        this.isLoading = false;
       },
       (error) => {
         console.log(error);

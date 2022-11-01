@@ -1,5 +1,5 @@
 <div class="table-responsive">
-  <table class="table table-hover bd-example" style="border: 1px solid #F3F3F3;">
+  <table  *ngIf="!isLoading; else carregando" class="table table-hover bd-example" style="border: 1px solid #F3F3F3;">
     <thead>
       <tr style="height: 80px; vertical-align: middle;background-color: #FAFAFA;color: #9B9DA1;">
         <th scope="col">#</th>
@@ -99,4 +99,8 @@
       </tr>
     </tbody>
   </table>
+
+  <ng-template #carregando>
+    Carregando...
+  </ng-template>
 </div>
